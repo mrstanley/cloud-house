@@ -1,0 +1,239 @@
+#deviceDetail {
+    height: 100%;
+    background-color: #fafafa;
+    .mui-bar {
+        background: transparent;
+        box-shadow: none;
+    }
+    .deviceContainer {
+        height: 100%;
+        .deviceInfo {
+            background: -webkit-linear-gradient(top, #0094ff, #2ac6ff);
+            background: linear-gradient(to bottom, #0094ff, #2ac6ff);
+            overflow: hidden;
+            height: 4.631rem;
+            .summary {
+                padding: .05rem 0 .15rem;
+                .row {
+                    height: .4rem;
+                    line-height: .4rem;
+                    margin: 0.04rem .4rem;
+                    display: flex;
+                    font-size: .28rem;
+                    color: #fff;
+                    .label {
+                        color: #BCEDFF;
+                        min-width: 1.4rem;
+                        display: inline-block;
+                        text-align: justify;
+                    }
+                    .info {
+                        flex: 1;
+                    }
+                }
+            }
+            .loading {
+                color: #fff !important;
+            }
+        }
+        .itemContainer {
+            height: calc(100% - 5.631rem);
+        }
+        .deviceUseInfo {
+            height: 100%;
+            background-color: #fafafa;
+            .mui-segmented-control {
+                height: 1rem;
+                background: #fff;
+                display: block;
+                box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+                z-index: 10000;
+                a {
+                    line-height: 1rem;
+                    font-size: .32rem;
+                    font-weight: bold;
+                    position: relative;
+                    display: inline-block;
+                    height: 1rem;
+                    width: 33.33%;
+                    color: #c6c6c6;
+                    &.mui-active {
+                        color: #0094FF;
+                        border: 0 none;
+                        &:after {
+                            position: absolute;
+                            content: " ";
+                            height: 2px;
+                            background-color: #0094ff;
+                            width: .5rem;
+                            bottom: 0;
+                            left: 50%;
+                            margin-left: -.25rem;
+                        }
+                    }
+                }
+            }
+            .mui-control-content {
+                height: 100%;
+                .authContainer {
+                    margin: .2rem;
+                    box-shadow: 0px .04rem .24rem 0px rgba(72, 72, 72, .15);
+                    background-color: #fff;
+                    .item {
+                        padding: .2rem;
+                        position: relative;
+                        &:not(:last-child) {
+                            &:before {
+                                position: absolute;
+                                content: " ";
+                                height: 2px;
+                                border: 0 none;
+                                border-bottom: dashed 2px #e7e7e7;
+                                width: 100%;
+                                bottom: 0;
+                                left: 0;
+                                right: 0;
+                            }
+                        }
+                        .row {
+                            height: .4rem;
+                            line-height: .4rem;
+                            margin: 0.04rem .1rem;
+                            display: flex;
+                            font-size: .28rem;
+                            color: #666666;
+                            .label {
+                                color: #999999;
+                                min-width: 1.4rem;
+                                display: inline-block;
+                                text-align: justify;
+                            }
+                            .info {
+                                flex: 1;
+                            }
+                        }
+                        .showUser {
+                            line-height: .6rem;
+                            border-radius: .7rem;
+                            background-color: #f2f2f2;
+                            font-size: .28rem;
+                            color: #0EA5FF;
+                            margin: .2rem 0;
+                            text-align: center;
+                        }
+                        &.show {
+                            background-color: #f9f9f9;
+                        }
+                    }
+                }
+                .recordsContainer {
+                    height: 100%;
+                    .searchBar {
+                        height: .88rem;
+                        background-color: #f2f2f2;
+                        padding: .16rem 0 .2rem .2rem;
+                        position: relative;
+                        input {
+                            width: 6.34rem;
+                            height: .56rem;
+                            font-size: .28rem;
+                            color: #bababa;
+                            border: 0 none;
+                            border-radius: .28rem;
+                            margin: 0;
+                            padding: .1rem .56rem;
+                            float: left;
+                            background-color: #fff;
+                        }
+                        .clear {
+                            position: absolute;
+                            width: .56rem;
+                            height: .56rem;
+                            right: 1rem;
+                            top: .14rem;
+                            padding: .3rem;
+                            background-size: 55%;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                            z-index: 1000;
+                            background-image: url("../../public/images/searchbar_btn_clear@3x.png");
+                        }
+                        .search {
+                            font-size: .3rem;
+                            color: #0094FF;
+                            float: right;
+                            line-height: .56rem;
+                            width: .95rem;
+                            text-align: center;
+                        }
+                    }
+                    .operatorType {
+                        padding: .2rem .2rem;
+                        height: .84rem;
+                        display: flex;
+                        box-shadow: 0 2px 0 0 #e7e7e7;
+                        .opt {
+                            height: .44rem;
+                            padding: 0 .2rem;
+                            margin: 0 .2rem;
+                            line-height: .44rem;
+                            border-radius: .25rem;
+                            color: #fff;
+                            background-color: #e7e7e7;
+                            font-size: .26rem;
+                            &.mui-active {
+                                color: #fff;
+                                background-color: #74C5FF;
+                            }
+                        }
+                    }
+                    .recordsTitle {
+                        height: .8rem;
+                        line-height: .8rem;
+                        display: flex;
+                        font-size: .28rem;
+                        text-align: center;
+                        font-weight: bold;
+                        color: #333333;
+                        border-top: solid 2px #e7e7e7;
+                        border-bottom: solid 2px #e7e7e7;
+                        .user {
+                            flex: 2
+                        }
+                        .optType {
+                            flex: 1.5;
+                        }
+                        .optTime {
+                            flex: 1.5;
+                        }
+                    }
+                    .recordsList {
+                        height: calc(100% - .88rem - .84rem - .8rem);
+                        position: relative;
+                        .item {
+                            font-size: .26rem;
+                            color: #666666;
+                            display: flex;
+                            padding: .2rem 0;
+                            line-height: .4rem;
+                            margin: 0 .2rem;
+                            text-align: center;
+                            &:not(:last-child) {
+                                border-bottom: dashed 2px #e7e7e7;
+                            }
+                            .user {
+                                flex: 2;
+                            }
+                            .optType {
+                                flex: 1.5;
+                            }
+                            .optTime {
+                                flex: 1.5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

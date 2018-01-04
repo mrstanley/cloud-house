@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "module": "commonjs",
+        "jsx": "react",
+        "jsxFactory": "h",
+        "target": "es5",
+        "lib": ["dom", "scripthost", "es5", "es2015.promise"],
+        "declaration": false,
+        "noImplicitAny": false,
+        "preserveConstEnums": false,
+        "allowJs": true,
+        "emitDecoratorMetadata": false,
+        "experimentalDecorators": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "src/**/*.tsx",
+        "src/**/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

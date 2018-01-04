@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+unpackage/
+.idea/
+.vscode
+.project
+.DS_Store
+.vscode/
+yarn.lock

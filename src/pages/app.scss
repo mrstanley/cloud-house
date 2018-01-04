@@ -1,0 +1,57 @@
+@import "../public/css/mui.min.css";
+@import "../public/js/layer_mobile/need/layer.css";
+.mui-bar {
+    height: .9rem;
+    width: 100%;
+    overflow: hidden;
+    line-height: .9rem;
+    background: -webkit-linear-gradient(top, #0094ff, #2ac6ff);
+    background: linear-gradient(to bottom, #0094ff, #2ac6ff);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .12);
+    .mui-title {
+        margin: 0 auto;
+        text-align: center;
+        width: 3rem;
+        height: .9rem;
+        line-height: .9rem;
+        font-size: .38rem;
+        color: #fff;
+        vertical-align: middle;
+    }
+    .mui-icon {
+        color: #fff !important;
+    }
+    span.iconfont {
+        height: .9rem;
+        width: .7rem;
+        text-align: center;
+        line-height: .9rem;
+        color: #fff;
+        font-size: .52rem;
+        display: block;
+        &:active {
+            color: #fbfbfb;
+        }
+    }
+    .mui-btn-link {
+        color: #ffffff;
+    }
+    &~.mui-content {
+        padding-top: .9rem;
+    }
+}
+
+.loading,
+.noData {
+    text-align: center;
+    font-size: .24rem;
+    padding: 1rem;
+    color: #aaa;
+}
+
+.mui-pull-bottom-tips {
+    text-align: center;
+    font-size: .28rem;
+    color: #999;
+    margin: .2rem 0;
+}

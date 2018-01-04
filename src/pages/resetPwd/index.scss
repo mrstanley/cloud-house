@@ -1,0 +1,50 @@
+body,
+html {
+    height: 100%;
+    background-color: #fafafa;
+}
+
+#resetPwd {
+    height: 100%;
+    overflow: hidden;
+    .mui-content {
+        height: 100%;
+        background-color: #fafafa;
+        .login {
+            height: 100%;
+            width: 6.7rem;
+            margin: .74rem auto 0;
+            input {
+                height: .92rem;
+                line-height: .92rem;
+                padding: .22rem;
+                font-size: .34rem;
+                border: 0 none;
+                border-radius: 0;
+                margin-bottom: .32rem;
+                background-color: transparent;
+                box-shadow: 0 1px 0 0 #e7e7e7;
+                &::-webkit-input-placeholder {
+                    color: #d9d9d9;
+                }
+            }
+            .submit {
+                background-color: #0094FF;
+                color: #ffffff;
+                height: .88rem;
+                line-height: .88rem;
+                font-size: .34rem;
+                text-align: center;
+                border-radius: .44rem;
+                margin-top: .7rem;
+                &.mui-disabled {
+                    background-color: #d8d8d8 !important;
+                }
+            }
+            .notice {
+                color: #999999;
+                font-size: .28rem;
+            }
+        }
+    }
+}

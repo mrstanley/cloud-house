@@ -1,0 +1,153 @@
+body,
+html {
+    height: 100%;
+    background-color: #fafafa;
+}
+
+#userInfo {
+    height: 100%;
+    overflow: hidden;
+    .mui-content {
+        background-color: #fff;
+        height: 100%;
+        .userInfo {
+            height: 5.915rem;
+        }
+        .picList {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            padding: .38rem .3rem 0;
+            .pic {
+                text-align: center;
+                max-width: 50%;
+                .img {
+                    width: 2.2rem;
+                    height: 2.7rem;
+                    display: block;
+                    img {
+                        max-width: 100%;
+                        vertical-align: middle;
+                    }
+                }
+                .desc {
+                    line-height: .4rem;
+                    color: #999999;
+                    margin-top: .18rem;
+                    font-size: .28rem;
+                }
+            }
+        }
+        .authContainer {
+            margin: 0 .2rem; // box-shadow: 0px .04rem .24rem 0px rgba(72, 72, 72, .15);
+            .item {
+                padding: .2rem;
+                position: relative;
+                &:not(:last-child) {
+                    &:before {
+                        position: absolute;
+                        content: " ";
+                        height: 2px;
+                        border: 0 none;
+                        border-bottom: dashed 2px #e7e7e7;
+                        width: 100%;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                    }
+                }
+                .row {
+                    height: .4rem;
+                    line-height: .4rem;
+                    margin: 0.04rem .1rem;
+                    display: flex;
+                    font-size: .28rem;
+                    color: #666666;
+                    .label {
+                        color: #999999;
+                        min-width: 1.4rem;
+                        display: inline-block;
+                        text-align: justify;
+                    }
+                    .info {
+                        flex: 1;
+                    }
+                }
+                .showUser {
+                    line-height: .6rem;
+                    border-radius: .7rem;
+                    background-color: #f2f2f2;
+                    font-size: .28rem;
+                    color: #0EA5FF;
+                    margin: .2rem 0;
+                    text-align: center;
+                }
+                &.show {
+                    background-color: #f9f9f9;
+                }
+            }
+        }
+        .recordsTitle {
+            color: #666666;
+            font-size: .28rem;
+            line-height: .4rem;
+            padding: .2rem .4rem;
+            height: .8rem;
+            margin: 0;
+            background-color: #fafafa;
+            border: solid 1px rgba(0, 0, 0, .05);
+            position: relative;
+        }
+        .records {
+            background-color: #fafafa;
+            overflow-y: scroll;
+            height: calc(100% - 5.915rem - .8rem);
+            position: relative;
+        }
+    }
+}
+
+.userInfo {
+    .authContainer {
+        margin: 0 .2rem; // box-shadow: 0px .04rem .24rem 0px rgba(72, 72, 72, .15);
+        .item {
+            padding: .2rem;
+            position: relative;
+            &:not(:last-child) {
+                &:before {
+                    position: absolute;
+                    content: " ";
+                    height: 2px;
+                    border: 0 none;
+                    border-bottom: dashed 2px #e7e7e7;
+                    width: 100%;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                }
+            }
+            .row {
+                height: .5rem;
+                line-height: .5rem;
+                margin: 0.04rem .1rem;
+                display: flex;
+                font-size: .28rem;
+                color: #666666;
+                .label {
+                    color: #999999;
+                    min-width: 1.4rem;
+                    display: inline-block;
+                    text-align: justify;
+                }
+                .info {
+                    flex: 1;
+                }
+            }
+        }
+    }
+    .mui-icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}
