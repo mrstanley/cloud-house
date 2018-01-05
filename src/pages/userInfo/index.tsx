@@ -95,6 +95,14 @@ export class UserInfo extends Component<AppProps, AppState> {
             indicators: true // 是否显示滚动条
         });
     }
+    showDeviceDetail(deviceId) {
+        return function () {
+            plus.webview.currentWebview().opener().close("none");
+            mui.later(() => {
+                showPage("deviceDetail", { deviceId });
+            }, 100);
+        }
+    }
     handlePickUpInfo() {
         infoLayer = layer.open({
             type: 1,
@@ -188,7 +196,7 @@ export class UserInfo extends Component<AppProps, AppState> {
                             <div className="mui-scroll" id="authInfoList">
                                 <div className="authContainer">
                                     {state.authInfoList.length && !state.authLoading ? state.authInfoList.map(((item: any, index) => (
-                                        <div className="item">
+                                        <div className="item" {...{ onTap: this.showDeviceDetail(item.deviceId) }}>
                                             <div className="row">
                                                 <div className="label">设备编号：</div>
                                                 <div className="info">{item.deviceNo}</div>

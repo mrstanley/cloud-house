@@ -49,7 +49,8 @@ export class DeviceDetail extends Component<AppProps, AppState> {
         hideScroll();
         plus.navigator.setStatusBarStyle("light");
         mui.back = () => {
-            if (plus.webview.currentWebview().opener().id !== "nearby") {
+            const opener = plus.webview.currentWebview().opener();
+            if (opener && opener.id !== "nearby") {
                 plus.navigator.setStatusBarStyle("dark");
             }
             plus.webview.currentWebview().close();
@@ -242,7 +243,11 @@ export class DeviceDetail extends Component<AppProps, AppState> {
         return (ev: Event) => {
             ev.stopPropagation();
             ev.preventDefault();
-            showPage("userInfo", { userId });
+            const userInfo = plus.webview.getWebviewById("userInfo");
+            userInfo && userInfo.close("none");
+            mui.later(() => {
+                showPage("userInfo", { userId });
+            }, 100);
         }
     }
     handleOptType(type) {

@@ -8,6 +8,7 @@ import { h, render } from "preact";
 import { App } from "./index";
 import { User } from "./user";
 import { Nearby } from "./nearby";
+import { OffLine } from "./offLine";
 import { ResetPwd } from "./resetPwd";
 import { DeviceDetail } from "./deviceDetail";
 import { UserInfo } from "./userInfo";
@@ -79,13 +80,19 @@ const Pages = {
     "nearby": <Nearby />,
     "deviceDetail": <DeviceDetail />,
     "resetPwd": <ResetPwd />,
-    "userInfo": <UserInfo />
+    "userInfo": <UserInfo />,
+    "offLine": <OffLine />
 };
 
 
 function creatMsgNotice(currentView, hasMsg) {
     const msgOnlineBtn = plus.nativeObj.View.getViewById("msgOnlineBtn") || createImgBtnView('msgOnlineBtn', { bottom: Px(44), left: Px(626), height: Px(96), width: Px(96) }, require('../public/images/msgOnline@3x.png'));
     const offBtn = createImgBtnView('offBtn', { bottom: Px(64), left: Px(650), height: Px(60), width: Px(60) }, require('../public/images/down@3x.png'));
+    const msgOutLine = new plus.nativeObj.View('msgOutLine', { bottom: Px(152), left: Px(384), height: Px(80), width: Px(326) }, [
+        { tag: 'rect', id: 'msgOutLineRect', rectStyles: { color: '#595959', radius: Px(45) } },
+        { tag: 'img', id: 'msgOutLineImg', src: require('../public/images/msgOutline@3x.png'), position: { top: Px(26), left: Px(18), width: Px(30.4), height: Px(28.8) } },
+        { tag: 'font', id: 'msgOutLineFont', text: '有设备已离线，请核实', position: { left: Px(60) }, textStyles: { align: 'left', color: '#ffffff', size: Px(24) } }
+    ]);
 
     if (hasMsg) {
         msgOnlineBtn.drawRect({ radius: Px(16), color: '#ff2727' }, { width: Px(16), height: Px(16), left: Px(54), bottom: Px(64) }, 'msgActive');
@@ -94,6 +101,12 @@ function creatMsgNotice(currentView, hasMsg) {
             offBtn.show();
             msgOnlineBtn.hide();
         });
+        msgOutLine.addEventListener('click', () => {
+            showPage("offLine");
+            msgOnlineBtn.show();
+            msgOutLine.hide();
+            offBtn.hide();            
+        });
     } else {
         msgOnlineBtn.addEventListener('click', () => {
             if (!getCookie("access_token")) {
@@ -101,12 +114,6 @@ function creatMsgNotice(currentView, hasMsg) {
             }
         });
     }
-
-    const msgOutLine = new plus.nativeObj.View('msgOutLine', { bottom: Px(152), left: Px(384), height: Px(80), width: Px(326) }, [
-        { tag: 'rect', id: 'msgOutLineRect', rectStyles: { color: '#595959', radius: Px(45) } },
-        { tag: 'img', id: 'msgOutLineImg', src: require('../public/images/msgOutline@3x.png'), position: { top: Px(26), left: Px(18), width: Px(30.4), height: Px(28.8) } },
-        { tag: 'font', id: 'msgOutLineFont', text: '有设备已离线，请核实', position: { left: Px(60) }, textStyles: { align: 'left', color: '#ffffff', size: Px(24) } }
-    ]);
 
     msgOutLine.hide();
     offBtn.hide();
