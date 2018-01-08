@@ -43,8 +43,8 @@ export class App extends Component<AppProps, AppState> {
     }
     setCityArea(location) {
         var currentPosition = new plus.maps.Point(location.lng, location.lat);
-        map.centerAndZoom(currentPosition, 12);
         map.setCenter(currentPosition);
+        map.centerAndZoom(currentPosition, 12);
         mui.later(() => {
             const boundsPoint = map.getBounds();
             this.getDevicesList(boundsPoint);

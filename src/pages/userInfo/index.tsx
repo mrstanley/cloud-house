@@ -97,7 +97,8 @@ export class UserInfo extends Component<AppProps, AppState> {
     }
     showDeviceDetail(deviceId) {
         return function () {
-            plus.webview.currentWebview().opener().close("none");
+            const opener = plus.webview.currentWebview().opener();
+            opener && opener.close("none");
             mui.later(() => {
                 showPage("deviceDetail", { deviceId });
             }, 100);
