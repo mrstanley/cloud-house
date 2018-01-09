@@ -17,7 +17,7 @@ const imgUrl = REMOTE + "file/"
 export interface AppProps { }
 interface AppState {
     userInfo: object | any;
-    authInfoList: object[];
+    authInfoList: object[] | any;
     authLoading: boolean;
     authPageNo: number;
     loading: boolean;
@@ -31,6 +31,7 @@ export class UserInfo extends Component<AppProps, AppState> {
     componentWillMount() {
         hideScroll();
         token = getCookie("access_token");
+        plus.navigator.setStatusBarStyle("light");
         let userId = plus.webview.currentWebview().userId;
         mui.back = () => {
             typeof infoLayer !== "undefined" ? (layer.closeAll(), infoLayer = undefined) : plus.webview.currentWebview().close();
@@ -95,8 +96,11 @@ export class UserInfo extends Component<AppProps, AppState> {
             indicators: true // 是否显示滚动条
         });
     }
-    showDeviceDetail(deviceId) {
-        return function () {
+    showDeviceDetail(deviceId, index) {
+        return () => {
+            this.state.authInfoList.forEach(item => item.show = false);
+            this.state.authInfoList.splice(index, 1, { ...this.state.authInfoList[index], show: true });
+            this.setState({ authInfoList: this.state.authInfoList });
             const opener = plus.webview.currentWebview().opener();
             opener && opener.close("none");
             mui.later(() => {
@@ -197,7 +201,7 @@ export class UserInfo extends Component<AppProps, AppState> {
                             <div className="mui-scroll" id="authInfoList">
                                 <div className="authContainer">
                                     {state.authInfoList.length && !state.authLoading ? state.authInfoList.map(((item: any, index) => (
-                                        <div className="item" {...{ onTap: this.showDeviceDetail(item.deviceId) }}>
+                                        <div className={item.show ? "item show" : "item"} {...{ onTap: this.showDeviceDetail(item.deviceId, index).bind(this) }}>
                                             <div className="row">
                                                 <div className="label">设备编号：</div>
                                                 <div className="info">{item.deviceNo}</div>

@@ -75,7 +75,7 @@ export class Nearby extends Component<AppProps, AppState> {
     getDevicesList(point) {
         setSettings("currentBounds", point);
         const data = {
-            ownerId: "1",
+            // ownerId: "1",
             nearBy: [
                 { y: point.northease.longitude, x: point.northease.latitude },
                 { y: point.southwest.longitude, x: point.southwest.latitude }

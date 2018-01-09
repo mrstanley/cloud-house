@@ -54,7 +54,7 @@ export class App extends Component<AppProps, AppState> {
         const that = this;
         setSettings("currentBounds", point);
         const data = {
-            ownerId: "1",
+            // ownerId: "1",
             nearBy: [
                 { y: point.northease.longitude, x: point.northease.latitude },
                 { y: point.southwest.longitude, x: point.southwest.latitude }

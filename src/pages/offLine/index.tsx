@@ -75,8 +75,8 @@ export class OffLine extends Component<AppProps, AppState> {
     getDevicesList(point) {
         setSettings("currentBounds", point);
         const data = {
-            ownerId: "1",
-            onlineState: false,            
+            // ownerId: "1",
+            onlineState: false,
             nearBy: [
                 { y: point.northease.longitude, x: point.northease.latitude },
                 { y: point.southwest.longitude, x: point.southwest.latitude }
@@ -217,7 +217,7 @@ export class OffLine extends Component<AppProps, AppState> {
             ev.preventDefault();
             showPage("userInfo", { userId });
         }
-    }    
+    }
     render(props: AppProps, state: AppState) {
         return (
             <section id="offLine">
