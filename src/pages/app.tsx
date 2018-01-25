@@ -128,6 +128,9 @@ function creatMsgNotice(currentView, hasMsg) {
         msgOnlineBtn
     ]);
 
+    offBtn.hide();
+    msgOutLine.hide();
+
 }
 
 

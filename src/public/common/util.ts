@@ -149,8 +149,8 @@ export class DrawBabbleImg {
         var scale = plus.screen.scale;
         var isIos = plus.os.name === 'iOS';
         this.canvas = document.createElement('canvas');
-        this.canvas.width = isIos ? 700 / scale : 700;
-        this.canvas.height = isIos ? 150 / scale : 150;
+        this.canvas.width = isIos ? 700 / (scale + 1) : 700;
+        this.canvas.height = isIos ? 150 / (scale + 1) : 150;
         this.ctx = this.canvas.getContext("2d");
     }
     draw(num, address) {
@@ -183,7 +183,7 @@ export class DrawBabbleImg {
     }
     iosDraw(num, address) {
         var scale = plus.screen.scale;
-        var x = 3 / scale, y = 3 / scale, width = 690 / scale, height = 130 / scale, radius = 5 / scale;
+        var x = 3 / (scale + 1), y = 3 / (scale + 1), width = 690 / (scale + 1), height = 130 / (scale + 1), radius = 5 / (scale + 1);
         const ctx: CanvasRenderingContext2D | any = this.ctx;
         this.clear();
         ctx.strokeStyle = "#999";
@@ -192,9 +192,9 @@ export class DrawBabbleImg {
         ctx.lineWidth = 4;
         ctx.lineTo(x, y + height - radius);
         ctx.quadraticCurveTo(x, y + height, x + radius, y + height);
-        ctx.lineTo(x + width / 2 - 18 / scale, y + height);
-        ctx.lineTo(x + width / 2, y + height + 16 / scale);
-        ctx.lineTo(x + width / 2 + 18 / scale, y + height);
+        ctx.lineTo(x + width / 2 - 18 / (scale + 1), y + height);
+        ctx.lineTo(x + width / 2, y + height + 16 / (scale + 1));
+        ctx.lineTo(x + width / 2 + 18 / (scale + 1), y + height);
         ctx.lineTo(x + width - radius, y + height);
         ctx.quadraticCurveTo(x + width, y + height, x + width, y + height - radius);
         ctx.lineTo(x + width, y + radius);
@@ -205,9 +205,9 @@ export class DrawBabbleImg {
         ctx.fillStyle = "#fafafa";
         ctx.fill("evenodd");
         ctx.fillStyle = "#444";
-        ctx.font = 34 / scale + "px serif";
-        ctx.fillText("设备编号：" + num, 20 / scale, 55 / scale);
-        ctx.fillText("设备地址：" + address, 20 / scale, 105 / scale);
+        ctx.font = 34 / (scale + 1) + "px serif";
+        ctx.fillText("设备编号：" + num, 20 / (scale + 1), 55 / (scale + 1));
+        ctx.fillText("设备地址：" + address, 20 / (scale + 1), 105 / (scale + 1));
         return this.canvas.toDataURL('image/jpg');
     }
     clear() {
