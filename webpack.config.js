@@ -31,7 +31,8 @@ module.exports = {
             'mui': path.resolve(__dirname, 'src/public/js/mui.min.js'),
             'flexible': path.resolve(__dirname, 'src/public/js/flexible.min.js'),
             'layer': path.resolve(__dirname, 'src/public/js/layer_mobile/layer.js'),
-            'pullToRefresh': path.resolve(__dirname, 'src/public/js/mui.pullToRefresh.js')
+            'pullToRefresh': path.resolve(__dirname, 'src/public/js/mui.pullToRefresh.js'),
+            'city': path.resolve(__dirname, 'src/public/js/city.js')
         }
     },
     module: {

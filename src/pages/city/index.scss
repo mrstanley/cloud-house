@@ -1,0 +1,59 @@
+body,
+html {
+    height: 100%;
+}
+
+#city {
+    height: 100%;
+    .mui-content {
+        height: 100%;
+        .provinces {
+            width: 50%;
+            height: 100%;
+            float: left;
+            box-shadow: 1px 0 1px 0 rgba(0, 0, 0, .15);
+            background-color: #fff;
+            z-index: 100;
+        }
+        .cities {
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            ul {
+                li {
+                    border-bottom: solid 1px #ddd !important;
+                    &.active {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+        .provinces,
+        .cities {
+            .cont {
+                height: 100%;
+                overflow-y: scroll;
+            }
+            ul {
+                margin: 0;
+                padding: 10px 0;
+                list-style: none;
+                li {
+                    &.active {
+                        background-color: #efeff4;
+                        box-shadow: 2px 0 0 1px #efeff4;
+                    }
+                    padding: 5px 20px;
+                    font-size: .28rem;
+                    line-height: .5rem;
+                    text-indent: .5em;
+                    color: #666666;
+                    border-bottom: solid 1px #efefef;
+                    &:last-child {
+                        border: 0 none;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -12,11 +12,12 @@ import { OffLine } from "./offLine";
 import { ResetPwd } from "./resetPwd";
 import { DeviceDetail } from "./deviceDetail";
 import { UserInfo } from "./userInfo";
+import { City } from "./city";
 
 import {
     Px, getImmersed, showPage, appBack,
     currentAppendSubView, createImgBtnView,
-    hideScroll, getCookie
+    hideScroll, getCookie, getSettings
 } from "../public/common/util";
 import { REMOTE } from "../public/config";
 
@@ -81,7 +82,8 @@ const Pages = {
     "deviceDetail": <DeviceDetail />,
     "resetPwd": <ResetPwd />,
     "userInfo": <UserInfo />,
-    "offLine": <OffLine />
+    "offLine": <OffLine />,
+    "city": <City />,
 };
 
 
@@ -105,7 +107,7 @@ function creatMsgNotice(currentView, hasMsg) {
             showPage("offLine");
             msgOnlineBtn.show();
             msgOutLine.hide();
-            offBtn.hide();            
+            offBtn.hide();
         });
     } else {
         msgOnlineBtn.addEventListener('click', () => {
@@ -115,9 +117,6 @@ function creatMsgNotice(currentView, hasMsg) {
         });
     }
 
-    msgOutLine.hide();
-    offBtn.hide();
-
     offBtn.addEventListener('click', () => {
         msgOnlineBtn.show();
         msgOutLine.hide();
@@ -125,7 +124,6 @@ function creatMsgNotice(currentView, hasMsg) {
     });
 
     currentAppendSubView(currentView, [
-        msgOutLine,
         offBtn,
         msgOnlineBtn
     ]);
@@ -135,9 +133,11 @@ function creatMsgNotice(currentView, hasMsg) {
 
 function createView(currentView) {
     const topoffset = getImmersed();
-    const titleView = new plus.nativeObj.View('titleView', { top: '0', left: '0', height: Px(140), width: '100%', backgroundColor: '#fff', opacity: 0.7 });
+    const titleView = new plus.nativeObj.View('titleView', { top: '0', left: '0', height: Px(140), width: '100%', backgroundColor: '#fff', opacity: 0.7 }, [
+        { tag: 'img', id: 'logo', src: require('../public/images/logo@3x.png'), position: { top: Px(32 + topoffset), left: Px(40), width: Px(248), height: Px(60) } },
+        { tag: 'font', id: 'city', text: getSettings('changeLocal') || '定位中...', position: { left: Px(500), top: Px(20) }, textStyles: { align: 'left', color: '#0094ff', size: Px(28) } }
+    ]);
 
-    const logo = createImgBtnView('logo', { top: Px(32 + topoffset), left: Px(40), width: Px(248), height: Px(60) }, require('../public/images/logo@3x.png'));
     const searchBtn = createImgBtnView('searchBtn', { top: Px(26 + topoffset), left: Px(638), width: Px(84), height: Px(84) }, require('../public/images/search@3x.png'));
     const localBtn = createImgBtnView('localBtn', { bottom: Px(44), left: Px(28), height: Px(96), width: Px(96) }, require('../public/images/loc@3x.png'));
     const userBtn: HTMLElement = createImgBtnView('userBtn', { bottom: Px(146), left: Px(28), height: Px(96), width: Px(96) }, require('../public/images/user@3x.png'));
@@ -160,9 +160,18 @@ function createView(currentView) {
         })
     });
 
+    window.addEventListener('changeLocal', (ev: any) => {
+        titleView.drawText(ev.detail.city, { left: Px(500), top: Px(20) }, { align: 'left', color: '#0094ff', size: Px(28) }, "city");
+    })
+
+    titleView.addEventListener('click', (ev) => {
+        if (ev.pageX > 230 && ev.pageX < 300) {
+            showPage('city');
+        }
+    });
+
     currentAppendSubView(currentView, [
         titleView,
-        logo,
         searchBtn,
         localBtn,
         userBtn

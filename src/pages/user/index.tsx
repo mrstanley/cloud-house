@@ -70,6 +70,7 @@ export class User extends Component<AppProps, AppState> {
                             loginName: res.data.loginName
                         });
                         plus.nativeUI.closeWaiting();
+                        mui.back();
                     }, 1000);
                 } else {
                     mui.toast(res.code === 1008 ? "登录密码错误" : "登录失败，请重试");

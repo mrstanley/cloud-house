@@ -6,7 +6,7 @@ declare global {
     }
 }
 
-import "./index.scss"; 
+import "./index.scss";
 import { h, Component } from "preact";
 import { MAP_URL, REMOTE } from "../../public/config";
 import { getCookie, DrawBabbleImg, setSettings, showPage, getSettings } from "../../public/common/util";
@@ -115,6 +115,8 @@ export class App extends Component<AppProps, AppState> {
     getCityInfo(point) {
         mui.getJSON(MAP_URL + "location=" + point.latitude + "," + point.longitude + "&output=json&pois=0", {}, (data) => {
             if (data.status === 0 && data.result.addressComponent && data.result.addressComponent.city) {
+                mui.fire(plus.webview.currentWebview(), "changeLocal", { city: data.result.addressComponent.city });
+                setSettings("changeLocal", data.result.addressComponent.city);
                 mui.getJSON(MAP_URL + "address=" + data.result.addressComponent.city + "&output=json", {}, (res) => {
                     if (res.status === 0 && res.result.location) {
                         this.setCityArea(res.result.location);
@@ -168,6 +170,15 @@ export class App extends Component<AppProps, AppState> {
                 }
             });
         });
+        window.addEventListener("selectLocation", (ev: any) => {
+            var newPoint = new plus.maps.Point(ev.detail.point.longtitude, ev.detail.point.latitude);
+            map.centerAndZoom(newPoint, 12);            
+            map.setCenter(newPoint);
+            mui.later(() => {
+                const boundsPoint = map.getBounds();
+                this.getDevicesList(boundsPoint);
+            }, 1000);
+        })
     }
     render(props: AppProps, state: AppState) {
         return (
