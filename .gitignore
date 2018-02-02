@@ -1,7 +1,13 @@
 node_modules/
 dist/
 build/
-unpackage/
+unpackage/*/*.apk
+unpackage/*/*.wgt
+unpackage/*/*.ipa
+unpackage/*.apk
+unpackage/*.wgt
+unpackage/*.ipa
+unpackage/.*
 .idea/
 .vscode
 .project

@@ -234,11 +234,11 @@
                     "iphone": {
                         "default": "",
                         /*iPhone3启动图片选，分辨率：320x480*/
-                        "retina35": "/Users/xiaolinli/Desktop/启动页/640x960@2x.png",
+                        "retina35": "src/public/images/splash/640x960@2x.png",
                         /*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-                        "retina40": "/Users/xiaolinli/Desktop/启动页/640x1136@2x.png",
-                        "retina55": "/Users/xiaolinli/Desktop/启动页/1242x2208@2x.png",
-                        "retina47": "/Users/xiaolinli/Desktop/启动页/750x1334@2x.png"
+                        "retina40": "src/public/images/splash/640x1136@2x.png",
+                        "retina55": "src/public/images/splash/1242x2208@2x.png",
+                        "retina47": "src/public/images/splash/750x1334@2x.png"
                     },
                     "ipad": {
                         "portrait": "",
@@ -263,11 +263,11 @@
                     /*普通屏启动图片，分辨率：240x282*/
                     "ldpi": "",
                     /*大屏启动图片，分辨率：320x442*/
-                    "hdpi": "/Users/xiaolinli/Desktop/启动页/480x800@2x.png",
+                    "hdpi": "src/public/images/splash/480x800@2x.png",
                     /*高分屏启动图片，分辨率：480x762*/
-                    "xhdpi": "/Users/xiaolinli/Desktop/启动页/720x1280@2x.png",
+                    "xhdpi": "src/public/images/splash/720x1280@2x.png",
                     /*720P高分屏启动图片，分辨率：720x1242*/
-                    "xxhdpi": "/Users/xiaolinli/Desktop/启动页/1080x1920@2x.png"
+                    "xxhdpi": "src/public/images/splash/1080x1920@2x.png"
                 }
             }
         }
