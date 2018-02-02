@@ -31,7 +31,7 @@
 
 ## 使用框架说明
 
-  项目使用 Typescript 编译ES6代码
+  项目使用 Typescript 编译ES6代码
 
   前端UI框架采用 [Preact](https://preactjs.com/)
   [mui](http://www.dcloud.io/mui.html)
